@@ -1,0 +1,22 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm} from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import {makeServer} from '../server/index.mjs';
+import {once} from 'node:events';
+const input={repository:'https://github.com/owner/build',purpose:'Public testing',genlayerRole:'Shared judgment'};
+test('API boundaries, persistence, ownership and safe public response',async()=>{const dir=await mkdtemp(path.join(os.tmpdir(),'genlysis-http-'));const {server}=makeServer({dataDir:dir,collector:async(i,{id,createdAt,parent})=>({id,title:'Test',createdAt,input:i,repository:{url:i.repository,commit:'a'.repeat(40)},rubricVersion:'genlysis-readiness-v1',sources:[{url:'https://raw.githubusercontent.com/owner/build/'+'a'.repeat(40)+'/a.py',path:'a.py',role:'contract',sha256:'b'.repeat(64),bytes:4,content:'private internal text'}],checks:[],findings:[],preflight:{coverage:0},parentId:parent?.id||null})});server.listen(0,'127.0.0.1');await once(server,'listening');const base='http://127.0.0.1:'+server.address().port;const post=(data,headers={})=>fetch(base+'/api/analyses',{method:'POST',headers:{'Content-Type':'application/json',...headers},body:JSON.stringify(data)});try{
+ assert.equal((await fetch(base+'/api/health')).status,200);
+ const config=await (await fetch(base+'/api/config')).json();assert.equal(config.consensusAvailable,false);assert.ok(!JSON.stringify(config).includes('GITHUB_TOKEN'));
+ assert.equal((await post(input,{Origin:'https://evil.test'})).status,403);
+ assert.equal((await post({...input,repository:'https://localhost/admin'})).status,400);
+ assert.equal((await fetch(base+'/api/analyses',{method:'POST',body:'not json'})).status,415);
+ const created=await (await post(input)).json();assert.match(created.id,/^[a-f0-9-]{36}$/);assert.equal(created.ownerToken.length,64);
+ await new Promise(ok=>setTimeout(ok,40));const response=await fetch(base+'/api/reports/'+created.id),job=await response.json();assert.equal(job.state,'complete');assert.equal(response.headers.get('x-frame-options'),'DENY');assert.equal(job.ownerHash,undefined);assert.equal(job.report.sources[0].content,undefined);
+ assert.equal((await post({...input,parentId:created.id})).status,403);
+ const revised=await post({...input,parentId:created.id},{Authorization:'Bearer '+created.ownerToken});assert.equal(revised.status,202);
+ const manifest=await (await fetch(base+'/api/reports/'+created.id+'/manifest')).json();assert.equal(manifest.sources[0].content,undefined);
+ const exp=await fetch(base+'/api/reports/'+created.id+'/export');assert.match(exp.headers.get('content-disposition'),/attachment/);assert.match(await exp.text(),/not attached/);
+ assert.equal((await fetch(base+'/api/reports/ffffffff-ffff-ffff-ffff-ffffffffffff')).status,404);
+ }finally{server.close();await once(server,'close');await rm(dir,{recursive:true,force:true})}});

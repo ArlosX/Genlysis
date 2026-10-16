@@ -1,0 +1,3 @@
+export async function api<T>(path:string,options?:RequestInit):Promise<T>{let response:Response;try{response=await fetch('/api'+path,{...options,headers:{...(options?.body?{'Content-Type':'application/json'}:{}),...options?.headers},signal:options?.signal||AbortSignal.timeout(25000)})}catch{throw new Error('The service could not be reached Check your connection and retry')}const body=await response.json();if(!response.ok)throw new Error(body.error||'The request could not be completed');return body}
+export const stored=<T>(key:string,fallback:T):T=>{try{return JSON.parse(localStorage.getItem(key)||'null')??fallback}catch{return fallback}}
+export const save=(key:string,value:unknown)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}}

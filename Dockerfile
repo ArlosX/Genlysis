@@ -1,0 +1,20 @@
+FROM node:24-bookworm-slim AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --no-fund
+COPY index.html tsconfig.json vite.config.ts ./
+COPY src ./src
+COPY public ./public
+RUN npm run build
+
+FROM node:24-bookworm-slim
+WORKDIR /app
+ENV NODE_ENV=production HOST=0.0.0.0 PORT=4181 DATA_DIR=/app/data
+COPY package*.json ./
+RUN npm ci --omit=dev --no-fund && mkdir /app/data && chown node:node /app/data
+COPY --from=build /app/dist ./dist
+COPY server ./server
+USER node
+EXPOSE 4181
+VOLUME ["/app/data"]
+CMD ["node", "server/index.mjs", "--production"]
