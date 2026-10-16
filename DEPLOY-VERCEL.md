@@ -15,7 +15,8 @@ Uploading only dist cannot provide analysis or persistent reports
 
 Create a Neon Postgres database in Vercel Storage and connect it to this project
 Enable the Production environment when connecting
-The integration should add DATABASE_URL or POSTGRES_URL automatically
+The integration should add DATABASE_URL, POSTGRES_URL or STORAGE_URL automatically
+The default STORAGE prefix is supported without manual changes
 Keep database credentials in server environment variables only
 
 Required additional environment variable
