@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {randomBytes,randomUUID,timingSafeEqual} from 'node:crypto';
 import {createStore} from './store.mjs';
 import {collect} from './collector.mjs';
+import {relayRpc} from './rpc.mjs';
 import {validateInput,digest,AppError,AXES,RUBRIC_VERSION,assessmentExport,manifestFor,canonical} from './validation.mjs';
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const normalize=v=>v instanceof Map?Object.fromEntries([...v].map(([k,x])=>[String(k),normalize(x)])):Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,normalize(x)])):v;
@@ -27,7 +28,12 @@ export function makeServer({dataDir=process.env.DATA_DIR||path.join(root,'data')
  const server=http.createServer(async(req,res)=>{res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');res.setHeader('X-Frame-Options','DENY');res.setHeader('Permissions-Policy','camera=(), microphone=(), geolocation=()');res.setHeader('Cross-Origin-Resource-Policy','same-origin');
   try{const url=new URL(req.url,'http://local'),route=url.pathname;
    if(req.method==='GET'&&route==='/api/health'){await store.ready;return json(res,200,{status:'ok',queue:queue.length,running});}
-   if(req.method==='GET'&&route==='/api/config')return json(res,200,{rubricVersion:RUBRIC_VERSION,axes:AXES,contractAddress:configured?address:null,rpc,network:'StudioNet',consensusAvailable:configured,limits:{maxFiles:6,maxFileBytes:24000,maxTotalBytes:60000},notice:'Independent readiness assessment. Official Builder points are not predicted.'});
+   if(req.method==='GET'&&route==='/api/config')return json(res,200,{rubricVersion:RUBRIC_VERSION,axes:AXES,contractAddress:configured?address:null,rpc,rpcRelay:'/api/rpc',network:'StudioNet',consensusAvailable:configured,limits:{maxFiles:6,maxFileBytes:24000,maxTotalBytes:60000},notice:'Independent readiness assessment. Official Builder points are not predicted.'});
+   if(req.method==='POST'&&route==='/api/rpc'){
+    const payload=await body(req),ip=String(req.headers['x-vercel-forwarded-for']||req.socket.remoteAddress||'unknown').split(',')[0].trim();
+    if(distributedLimit)await distributedLimit('rpc:'+digest(ip),180,60);else{const key='rpc:'+ip,now=Date.now(),item=rate.get(key)||{start:now,count:0};if(now-item.start>60000){item.start=now;item.count=0}item.count++;rate.set(key,item);if(item.count>180)throw new AppError('RPC request limit reached Wait a minute before retrying',429)}
+    return json(res,200,await relayRpc(payload,{endpoint:rpc,address,fetcher}));
+   }
    if(req.method==='POST'&&route==='/api/analyses'){
     const input=validateInput(await body(req));let parent=null;if(input.parentId){const prior=await store.get(input.parentId,true);if(!prior?.report)throw new AppError('Previous report was not found.',404);if(!owned(req,prior))throw new AppError('Use the browser that created this report to register a revision.',403);if(prior.report.repository.url!==input.repository)throw new AppError('A revision must keep the same repository.');parent=prior.report;}if(distributedLimit){const ip=String(req.headers['x-vercel-forwarded-for']||req.socket.remoteAddress||'unknown').split(',')[0].trim();await distributedLimit(digest(ip))}else rateLimit(req);const id=randomUUID(),ownerToken=randomBytes(32).toString('hex'),createdAt=await store.create(id,input,digest(ownerToken));const pending={id,input,createdAt,parent};json(res,202,{id,ownerToken,state:'queued'});if(background)background(processJob(pending));else{queue.push(pending);void drain()}return;
    }

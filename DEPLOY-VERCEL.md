@@ -55,6 +55,10 @@ Vercel waitUntil keeps each collection task attached to its invocation
 Timed-out collection jobs become failed after five minutes when read
 The user can submit a fresh analysis after a failure
 Actual GenLayer assessment runs on StudioNet and is polled by the browser
+SDK reads and receipt polling use the same-origin /api/rpc relay
+The relay uses the fixed server RPC and allows only bounded read operations
+Signing and transaction submission remain in the connected wallet
+Temporary upstream transport errors are retried once for reads only
 
 ## Current validation
 
