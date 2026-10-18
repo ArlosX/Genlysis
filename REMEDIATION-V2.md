@@ -59,7 +59,19 @@ The official Studio schema service accepted the revised public method schema
 The existing local contract fixture was updated for line references, the semantic response and source-only score limits
 No automated test suite was added or run during this change
 The historical test counts in TEST-REPORT.md do not establish v2 behavior
-The revised source still requires replacement deployment, source-equivalence verification and live user-signed transactions
+The replacement deployment and source-equivalence verification are recorded below
+Live user-signed v2 assessment transactions remain required
+
+## Verified replacement deployment
+
+The replacement is deployed at 0x0dA89d044b8568EA288adB1961a071eaFFE68432
+Its deployment transaction 0x4172f83d98c4b738fddbb560d5e528c8594ffbeac4c2682f5bc96c70013eacef is FINALIZED with successful GenVM returns
+Deployed source matches reviewed commit 6bcf6a2b85c463f5fb306f44046f0cd409c63bc5 byte for byte
+Both source SHA-256 values are 21348c729a2b0394c7f265770bba51a7ffcbdedf577701ebb879197f1406f538
+The finalized protocol reports genlysis-v2 and semantic-evidence-v2
+Machine-readable proofs are in docs/verification/v2-deployment-equivalence.json and docs/verification/v2-deployment-receipt.json
+Local environment configuration uses the new address
+Live v2 assessment signing and the matching Vercel publication remain to be completed
 
 ## Limits
 

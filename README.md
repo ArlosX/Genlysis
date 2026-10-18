@@ -12,8 +12,9 @@ axes, weights, report structure and revision workflow
 
 The historical v1 deployment is 0x4BD95131706b77a8100ee38a634a797bE7928715
 It is not proof of the corrected v2 source
-The replacement contract must be deployed and source-verified before connecting
-this branch to production
+The replacement contract is deployed and source-verified at
+0x0dA89d044b8568EA288adB1961a071eaFFE68432
+Live v2 assessment and matching production publication remain to be completed
 See [the v2 remediation record](REMEDIATION-V2.md) for implementation and rollout status
 
 ## Deploy on Vercel
