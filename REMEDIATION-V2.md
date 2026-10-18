@@ -99,6 +99,19 @@ Proofs are in docs/verification/v21-deployment-equivalence.json and docs/verific
 The local API was restarted and its configuration confirms this address
 New user-signed assessment and the matching production update remain pending
 
+## Observed v2.1 consensus disagreement
+
+Transaction 0xf464e4e3e09a2d45bee01e144c0245b8f5adbc70eb46f020fa5988497cecb3a6 reached validator execution and ended Undetermined after four rounds and three leader rotations
+The final-round validator receipts show disagreement without execution errors
+Its later outer status FINALIZED did not mean an accepted assessment
+An independent finalized read confirms report 79f6463b-13cb-4e4e-9d99-5fc5b5d08732 is registered and has no assessment
+The receipt does not establish which particular semantic or criterion check caused each disagreement
+The frontend now distinguishes this consensus outcome from network errors and successful leader execution
+Status feedback includes the actual round and revealed vote count when supplied by StudioNet
+The original registration remains available for a manually requested assessment retry
+No contract changes are part of this frontend correction
+The compact evidence is in docs/verification/v21-consensus-disagreement.json
+
 ## Limits
 
 Semantic support checks are qualitative model judgments and do not guarantee immunity to manipulation

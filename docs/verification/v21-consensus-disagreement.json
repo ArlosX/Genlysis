@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-10-18T22:31:58.624Z",
+  "hash": "0xf464e4e3e09a2d45bee01e144c0245b8f5adbc70eb46f020fa5988497cecb3a6",
+  "address": "0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5",
+  "author": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+  "report_id": "79f6463b-13cb-4e4e-9d99-5fc5b5d08732",
+  "status": "FINALIZED",
+  "final_consensus_round": "Undetermined",
+  "round_count": "4",
+  "rotations": 3,
+  "last_votes": [
+    "IDLE",
+    "DISAGREE",
+    "DISAGREE",
+    "DISAGREE",
+    "IDLE"
+  ],
+  "validators": [
+    {
+      "vote": "disagree",
+      "execution_result": "SUCCESS",
+      "nondet_disagree": 0,
+      "error": null
+    },
+    {
+      "vote": "disagree",
+      "execution_result": "SUCCESS",
+      "nondet_disagree": 0,
+      "error": null
+    },
+    {
+      "vote": "disagree",
+      "execution_result": "SUCCESS",
+      "nondet_disagree": 0,
+      "error": null
+    },
+    {
+      "vote": "idle",
+      "execution_result": "ERROR",
+      "nondet_disagree": null,
+      "error": "CONSENSUS_VALIDATOR_QUORUM_REACHED"
+    }
+  ],
+  "finalized_report_registration_exists": true,
+  "finalized_assessment": null,
+  "interpretation": "Validator consensus was not reached No assessment was stored A successful leader return alone is not a finalized consensus result"
+}
