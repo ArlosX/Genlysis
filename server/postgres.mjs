@@ -9,7 +9,14 @@ export function createPostgresStore(connection) {
   await sql`CREATE TABLE IF NOT EXISTS genlysis_rates (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at TIMESTAMPTZ NOT NULL)`
  })()
  // Requests surface setup errors without an unhandled background rejection
- ready.catch(()=>{})
+ ready.catch(error=>console.error('Genlysis database initialization failed',{
+  name:String(error?.name||'Error'),
+  code:String(error?.code||'UNKNOWN'),
+  message:String(error?.message||'Database initialization failed')
+   .replace(/\b(?:postgres(?:ql)?|https?):\/\/[^\s]+/gi,'[redacted endpoint]')
+   .replace(/\b(?:password|token|secret)\s*[=:]\s*[^\s,;]+/gi,'[redacted credential]')
+   .slice(0,500)
+ }))
  return {
   ready,
   async create(id,input,hash){await ready;const [r]=await sql`INSERT INTO genlysis_jobs(id,state,stage,input,owner_hash) VALUES(${id},'queued','Queued',${JSON.stringify(input)}::jsonb,${hash}) RETURNING created_at`;return new Date(r.created_at).toISOString()},
