@@ -77,4 +77,9 @@ The earlier 38 Node and 23 Python results remain historical v1 evidence
 The new deployment at 0x0dA89d044b8568EA288adB1961a071eaFFE68432 and exact deployed-source comparison are verified in docs/verification/v2-deployment-equivalence.json
 Its deployment receipt has successful finalized GenVM returns recorded in docs/verification/v2-deployment-receipt.json
 Live signed v2 assessment scenarios remain required
+The first actual v2 assessment finalized successfully but stored five UNKNOWN criteria and zero coverage
+This is recorded as a response-handling limitation, not proof of a successful supported assessment
+The local v2.1 source adds numbered source lines, exact-quote location recovery and explicit rejection of an entirely unusable response
+Official schema compatibility for v2.1 is recorded in docs/verification/v21-schema-verification.json
+Replacement deployment and live v2.1 assessment remain required
 See REMEDIATION-V2.md for the changes and completion record

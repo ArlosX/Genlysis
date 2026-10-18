@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 export const RUBRIC_VERSION='genlysis-readiness-v1';
 export const PROTOCOL_VERSION='genlysis-v2';
-export const ASSESSMENT_VERSION='semantic-evidence-v2';
+export const ASSESSMENT_VERSION='semantic-evidence-v2.1';
 export const safeEvidencePath=value=>typeof value==='string'&&value.length<=220&&/^[-A-Za-z0-9_./]+$/.test(value)&&!value.split('/').some(part=>['','.','..','.git','.env'].includes(part));
 export const AXES=[{id:'fit',name:'GenLayer fit',weight:25},{id:'integration',name:'Real integration',weight:25},{id:'reproducibility',name:'Reproducibility',weight:20},{id:'resilience',name:'Adversarial resilience',weight:15},{id:'documentation',name:'Submission clarity',weight:15}];
 export class AppError extends Error {constructor(message,status=400){super(message);this.status=status}}

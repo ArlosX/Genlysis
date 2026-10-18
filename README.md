@@ -15,6 +15,8 @@ It is not proof of the corrected v2 source
 The replacement contract is deployed and source-verified at
 0x0dA89d044b8568EA288adB1961a071eaFFE68432
 Live v2 assessment and matching production publication remain to be completed
+The first live v2 write stored only UNKNOWN criteria
+The local semantic-evidence-v2.1 response-handling correction requires a replacement deployment before further live verification
 See [the v2 remediation record](REMEDIATION-V2.md) for implementation and rollout status
 
 ## Deploy on Vercel

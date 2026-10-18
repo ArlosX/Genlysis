@@ -17,7 +17,7 @@ const sha=b=>createHash('sha256').update(b).digest('hex')
 if(!local.equals(remote))throw Error('Deployed source differs from the reviewed local source')
 const normalize=v=>typeof v==='bigint'?v.toString():v instanceof Map?Object.fromEntries([...v].map(([k,x])=>[k,normalize(x)])):Array.isArray(v)?v.map(normalize):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,normalize(x)])):v
 const protocol=normalize(await client.readContract({address,functionName:'get_protocol',args:[],transactionHashVariant:TransactionHashVariant.LATEST_FINAL}))
-if(protocol.version!=='genlysis-v2'||protocol.assessment_version!=='semantic-evidence-v2')throw Error('Deployment protocol is not the corrected version')
+if(protocol.version!=='genlysis-v2'||protocol.assessment_version!=='semantic-evidence-v2.1')throw Error('Deployment protocol is not the corrected version')
 const proof={verified_at:new Date().toISOString(),address,reviewed_commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),source_path:filename,source_sha256:sha(local),deployed_source_sha256:sha(remote),source_equal:true,protocol}
 mkdirSync('artifacts',{recursive:true})
 writeFileSync('artifacts/v2-deployment-equivalence.json',JSON.stringify(proof,null,2)+'\n')

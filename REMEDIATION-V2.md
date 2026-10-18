@@ -73,6 +73,22 @@ Machine-readable proofs are in docs/verification/v2-deployment-equivalence.json 
 Local environment configuration uses the new address
 Live v2 assessment signing and the matching Vercel publication remain to be completed
 
+## Live response-shape follow-up
+
+The first assessment transaction 0x96274a7269749c392b9956ba639b515ba39f63414be0e3dd8e398284a7355137 returned successfully and finalized
+Its report 9089b164-f04a-40b5-9ac2-9a11076d1d16 stored UNKNOWN for all five criteria, score 0 and coverage 0
+That receipt establishes a successful write but not useful positive assessment behavior
+Raw model responses are not retained in the normalized receipt, so a precise root cause cannot be asserted from that record
+
+The semantic-evidence-v2.1 correction now presents source lines with explicit numbers and the complete five-axis response shape
+It derives missing or incorrect line locations only from an exact uniquely occurring quotation in the committed source
+Missing, ambiguous or irrelevant quotations cannot bypass source or semantic validation
+An unusable response that discards every criterion now fails explicitly without storing an apparent zero-quality assessment
+A legitimate explicit UNKNOWN result remains an evidence-gap outcome
+The official schema check accepted this exact corrected source, recorded in docs/verification/v21-schema-verification.json
+The first response is preserved in docs/verification/v2-first-assessment-unknown.json
+The v2.1 source requires a replacement deployment and new live assessment before production publication
+
 ## Limits
 
 Semantic support checks are qualitative model judgments and do not guarantee immunity to manipulation
