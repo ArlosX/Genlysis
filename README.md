@@ -16,7 +16,10 @@ The current v2.1 replacement contract is deployed and source-verified at
 0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5
 Live v2 assessment and matching production publication remain to be completed
 The first live v2 write stored only UNKNOWN criteria
-The semantic-evidence-v2.1 response-handling correction is now deployed and locally configured for live verification
+The semantic-evidence-v2.1 response-handling correction is deployed
+Two subsequent Undetermined outcomes are documented with finalized-state checks
+The prepared semantic-evidence-v2.2 validator independently checks each proposed claim against committed evidence instead of requiring a competing free-form assessment to match
+Its replacement deployment and live verification remain pending
 See [the v2 remediation record](REMEDIATION-V2.md) for implementation and rollout status
 
 ## Deploy on Vercel

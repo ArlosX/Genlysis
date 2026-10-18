@@ -16,8 +16,8 @@ Protocol and assessment version markers distinguish new verification from histor
 - Exact criterion quotations now include validated start and end lines
 - Model fields require the expected types and lengths instead of being converted from arbitrary objects
 - Malformed or missing evidence becomes UNKNOWN with safe explanatory fields
-- Every validator recomputes the criterion statuses and validates the leader's line references
-- A separate semantic check requires substantive support for both assessments and compatible reasoning, actions and verification procedures
+- Every validator independently fetches and hashes the sources and validates the proposed line references
+- Independent per-criterion semantic checks verify the proposed status, substantive evidence support, reasoning, corrective action and verification procedure against the same fixed rubric
 - Status-label agreement alone cannot authorize a supported result
 - Unsupported, contradictory or unclear semantic support rejects the assessment without writing a result
 - Integration and resilience cannot become PASS solely from committed source evidence
@@ -111,6 +111,31 @@ Status feedback includes the actual round and revealed vote count when supplied 
 The original registration remains available for a manually requested assessment retry
 No contract changes are part of this frontend correction
 The compact evidence is in docs/verification/v21-consensus-disagreement.json
+
+## Repeated disagreement and v2.2 validation correction
+
+Transaction 0x750a3ab7045b44f6eb9f58cb09ed8c987a4460e6cdf2b38d52f5221c4dc8ea04 again ended Undetermined after four rounds
+Its report 150810c4-4369-4a3e-b1fa-077cd124bfa5 remains registered with no finalized assessment
+Three final-round validators disagreed and two agreed without a reported validator execution error
+The exact rejected code branch was not logged in that historical contract
+Evidence is preserved in docs/verification/v21-second-disagreement.json
+
+The previous validator required all five labels from a second freely generated assessment to equal the proposal before checking semantic compatibility of both complete narratives
+That creates a joint agreement requirement across several qualitative judgments and recommendations
+It is a code-level liveness risk, not proof that any particular prior rejection was incorrect
+
+The semantic-evidence-v2.2 validator instead independently retrieves the committed sources, validates exact citations and evaluates each proposed claim against the same fixed rubric
+It requires positive per-axis support and no contradiction for status, evidence, reasoning, action and verification
+It does not require a separately generated competing narrative or preferred wording to match
+Runtime ceilings, source commitments, authorization, deterministic score rules and the five public method signatures are retained
+Each static or semantic rejection now produces a bounded GENLYSIS_VALIDATION diagnostic naming the affected axis
+The validator does not accept conflicting or ungrounded claims merely to improve liveness
+
+The production frontend build and official schema check succeeded for the prepared source
+Exact schema source identity is in docs/verification/v22-schema-verification.json
+The existing controlled fixture was aligned with the per-axis checker format
+No automated test suite was added or run for this correction
+The v2.2 source requires replacement deployment, source-equivalence verification and a successful live assessment before acceptance or production publication
 
 ## Limits
 

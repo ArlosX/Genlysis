@@ -83,4 +83,9 @@ The local v2.1 source adds numbered source lines, exact-quote location recovery 
 Official schema compatibility for v2.1 is recorded in docs/verification/v21-schema-verification.json
 The v2.1 replacement at 0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5 has verified source equivalence and successful finalized deployment receipts in docs/verification/v21-deployment-equivalence.json and docs/verification/v21-deployment-receipt.json
 Live v2.1 assessment remains required
+Two actual v2.1 attempts ended Undetermined and stored no assessment
+The repeated disagreement records are preserved in docs/verification/v21-consensus-disagreement.json and docs/verification/v21-second-disagreement.json
+The v2.2 correction retains source and semantic controls while replacing competing free-form assessment matching with independent per-criterion claim validation and rejection diagnostics
+Its frontend build and official schema check succeeded
+Automated suites were not run for v2.2 and its deployment and live verification remain pending
 See REMEDIATION-V2.md for the changes and completion record
