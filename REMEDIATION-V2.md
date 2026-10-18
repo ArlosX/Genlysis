@@ -137,6 +137,18 @@ The existing controlled fixture was aligned with the per-axis checker format
 No automated test suite was added or run for this correction
 The v2.2 source requires replacement deployment, source-equivalence verification and a successful live assessment before acceptance or production publication
 
+## Verified v2.2 replacement
+
+The deployed replacement is 0xa3475354FC960E052D126677ce9E9F52288d3F21
+Its deployment transaction 0x3ef4682f3ee4f22cba0e590328c258e17299725b6c2dc77fcbac0cf58a037008 finalized with successful GenVM returns
+Deployed source matches reviewed commit 790acd4b5e2a441708aee1e853c26f750923f08f byte for byte
+Source SHA-256 is 6433ca7a48c444dcf173053b1d0f561cccb660793c2b9dbe0849cd986150aa12
+The finalized protocol reports semantic-evidence-v2.2 and independent-claim-validation
+Proofs are in docs/verification/v22-deployment-equivalence.json and docs/verification/v22-deployment-receipt.json
+Local API configuration uses the verified address and was restarted
+The existing reports remain in the database and can be registered against the new contract
+Live v2.2 assessment and production publication remain pending
+
 ## Limits
 
 Semantic support checks are qualitative model judgments and do not guarantee immunity to manipulation

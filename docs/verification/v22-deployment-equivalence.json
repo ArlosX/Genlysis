@@ -1,0 +1,39 @@
+{
+  "verified_at": "2026-10-18T22:59:44.448Z",
+  "address": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+  "reviewed_commit": "790acd4b5e2a441708aee1e853c26f750923f08f",
+  "source_path": "contracts/genlysis.py",
+  "source_sha256": "6433ca7a48c444dcf173053b1d0f561cccb660793c2b9dbe0849cd986150aa12",
+  "deployed_source_sha256": "6433ca7a48c444dcf173053b1d0f561cccb660793c2b9dbe0849cd986150aa12",
+  "source_equal": true,
+  "protocol": {
+    "assessment_version": "semantic-evidence-v2.2",
+    "axes": [
+      "fit",
+      "integration",
+      "reproducibility",
+      "resilience",
+      "documentation"
+    ],
+    "evidence_level": "committed-source",
+    "max_source_bytes": 24000,
+    "max_sources": 6,
+    "max_total_bytes": 60000,
+    "rubric_version": "genlysis-readiness-v1",
+    "runtime_attestation": false,
+    "runtime_capped_axes": [
+      "integration",
+      "resilience"
+    ],
+    "source_only_score_ceiling": 80,
+    "validation_mode": "independent-claim-validation",
+    "version": "genlysis-v2",
+    "weights": [
+      25,
+      25,
+      20,
+      15,
+      15
+    ]
+  }
+}

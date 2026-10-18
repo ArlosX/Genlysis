@@ -88,4 +88,7 @@ The repeated disagreement records are preserved in docs/verification/v21-consens
 The v2.2 correction retains source and semantic controls while replacing competing free-form assessment matching with independent per-criterion claim validation and rejection diagnostics
 Its frontend build and official schema check succeeded
 Automated suites were not run for v2.2 and its deployment and live verification remain pending
+The subsequent v2.2 deployment is now source-verified at 0xa3475354FC960E052D126677ce9E9F52288d3F21 with a successful finalized deployment receipt
+See docs/verification/v22-deployment-equivalence.json and docs/verification/v22-deployment-receipt.json
+Successful live v2.2 assessment remains pending
 See REMEDIATION-V2.md for the changes and completion record

@@ -12,14 +12,14 @@ axes, weights, report structure and revision workflow
 
 The historical v1 deployment is 0x4BD95131706b77a8100ee38a634a797bE7928715
 It is not proof of the corrected v2 source
-The current v2.1 replacement contract is deployed and source-verified at
-0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5
+The current v2.2 replacement contract is deployed and source-verified at
+0xa3475354FC960E052D126677ce9E9F52288d3F21
 Live v2 assessment and matching production publication remain to be completed
 The first live v2 write stored only UNKNOWN criteria
 The semantic-evidence-v2.1 response-handling correction is deployed
 Two subsequent Undetermined outcomes are documented with finalized-state checks
 The prepared semantic-evidence-v2.2 validator independently checks each proposed claim against committed evidence instead of requiring a competing free-form assessment to match
-Its replacement deployment and live verification remain pending
+Its replacement deployment is verified and locally configured; live assessment verification remains pending
 See [the v2 remediation record](REMEDIATION-V2.md) for implementation and rollout status
 
 ## Deploy on Vercel
