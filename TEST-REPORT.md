@@ -81,5 +81,6 @@ The first actual v2 assessment finalized successfully but stored five UNKNOWN cr
 This is recorded as a response-handling limitation, not proof of a successful supported assessment
 The local v2.1 source adds numbered source lines, exact-quote location recovery and explicit rejection of an entirely unusable response
 Official schema compatibility for v2.1 is recorded in docs/verification/v21-schema-verification.json
-Replacement deployment and live v2.1 assessment remain required
+The v2.1 replacement at 0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5 has verified source equivalence and successful finalized deployment receipts in docs/verification/v21-deployment-equivalence.json and docs/verification/v21-deployment-receipt.json
+Live v2.1 assessment remains required
 See REMEDIATION-V2.md for the changes and completion record

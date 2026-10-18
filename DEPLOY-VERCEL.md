@@ -25,7 +25,7 @@ See REMEDIATION-V2.md for the replacement deployment path
 Required additional environment variable
 
 ```text
-GENLYSIS_CONTRACT_ADDRESS=0x0dA89d044b8568EA288adB1961a071eaFFE68432
+GENLYSIS_CONTRACT_ADDRESS=0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5
 ```
 
 Optional server variables

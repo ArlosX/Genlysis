@@ -87,7 +87,17 @@ An unusable response that discards every criterion now fails explicitly without 
 A legitimate explicit UNKNOWN result remains an evidence-gap outcome
 The official schema check accepted this exact corrected source, recorded in docs/verification/v21-schema-verification.json
 The first response is preserved in docs/verification/v2-first-assessment-unknown.json
-The v2.1 source requires a replacement deployment and new live assessment before production publication
+The v2.1 source requires a new live assessment before production publication
+
+## Verified v2.1 replacement
+
+The semantic-evidence-v2.1 deployment is 0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5
+Its successful finalized deployment transaction is 0xe2307bde6d6f2551bf9e368d71eae1ce78004e6e18b447aae0d86b771d2ec797
+The deployed source matches reviewed commit 3b0ff8db64dea79f79b6fbc292dacaa5dfeb26c8 byte for byte
+Source SHA-256 is 6abda693b0e685b00f308c7d6da32376a7e1f81947f3c016d4930e2e74fc7323
+Proofs are in docs/verification/v21-deployment-equivalence.json and docs/verification/v21-deployment-receipt.json
+The local API was restarted and its configuration confirms this address
+New user-signed assessment and the matching production update remain pending
 
 ## Limits
 
