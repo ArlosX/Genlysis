@@ -3,20 +3,35 @@
 Genlysis helps GenLayer builders inspect a public build before submission,
 find evidence gaps, plan corrections and preserve revision history.
 
-The initial product has a working public-source preflight backend, persistent
-reports, a responsive assessment studio, export and revision comparison,
-and a schema-checked GenLayer contract with independent source assessment.
-The StudioNet contract is deployed at
-`0x4BD95131706b77a8100ee38a634a797bE7928715`
-An end-to-end assessment was completed and retained after refresh
-Public Vercel deployment and Neon persistence still require live verification
+The product provides bounded public-source collection, persistent reports,
+a responsive assessment studio, export and revision comparison
+
+The prepared v2 update adds semantic evidence support validation, exact source
+line references and independent interpretation checks while retaining the five
+axes, weights, report structure and revision workflow
+
+The historical v1 deployment is 0x4BD95131706b77a8100ee38a634a797bE7928715
+It is not proof of the corrected v2 source
+The current v2.2 replacement contract is deployed and source-verified at
+0xa3475354FC960E052D126677ce9E9F52288d3F21
+Live v2.2 assessment is verified with accepted consensus and finalized-state readback
+The verified result is 65/100 with 85% criterion coverage for one committed-source report
+This is an independent readiness result, not official Builder points or a runtime attestation
+Matching production publication remains pending
+The first live v2 write stored only UNKNOWN criteria
+The semantic-evidence-v2.1 response-handling correction is deployed
+Two subsequent Undetermined outcomes are documented with finalized-state checks
+The prepared semantic-evidence-v2.2 validator independently checks each proposed claim against committed evidence instead of requiring a competing free-form assessment to match
+Its replacement deployment is verified and locally configured
+The successful receipt and backend readback are preserved in docs/verification/v22-live-assessment.json
+See [the v2 remediation record](REMEDIATION-V2.md) for implementation and rollout status
 
 ## Deploy on Vercel
 
 Import this repository as a Vite project using Node.js 24.x
 Use `npm run build` and output directory `dist`, with this repository as the root
 The `api` directory supplies the backend alongside the static frontend
-Connect Neon Storage and set `GENLYSIS_CONTRACT_ADDRESS` to the address above
+Connect Neon Storage and set `GENLYSIS_CONTRACT_ADDRESS` to the newly verified v2 address
 Redeploy after configuring the environment
 See [the deployment guide](DEPLOY-VERCEL.md) for the full configuration
 
@@ -77,12 +92,17 @@ flowchart LR
   independent rubric. Registration stores source URLs, content hashes and
   context. Every validator re-fetches and re-hashes sources and independently
   assesses the five statuses. Quotes supporting scored statuses must occur
-  verbatim in a named source.
+  verbatim inside an exact line range in a named source
+  A separate semantic validation requires substantive support and materially
+  compatible reasoning, corrective actions and verification procedures
 - The fixed rubric uses fit 25, integration 25, reproducibility 20, resilience
   15 and documentation 15. PASS earns full weight, PARTIAL half, FAIL/UNKNOWN
   zero. Coverage reports evidenced weight. Any unknown blocks readiness;
   any partial or fail requires work. These are proposed independent weights,
-  not a calibrated forecast of official points.
+  not a calibrated forecast of official points
+  Source-only evidence cannot authenticate runtime integration or security tests
+  Those two axes are capped at PARTIAL, giving this evidence level a maximum
+  of 80/100 without changing the criterion weights
 - Consensus agreement does not make qualitative judgment infallible. Evidence
   can make truthful but incomplete claims, omit defects or contain prompt
   injection. No broad security-audit or injection-immunity claim is made.

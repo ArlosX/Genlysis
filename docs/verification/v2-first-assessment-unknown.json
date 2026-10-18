@@ -1,0 +1,140 @@
+{
+  "verified_at": "2026-10-18T22:03:18.301Z",
+  "receipt": {
+    "hash": "0x96274a7269749c392b9956ba639b515ba39f63414be0e3dd8e398284a7355137",
+    "address": "0x0dA89d044b8568EA288adB1961a071eaFFE68432",
+    "to": "0x0dA89d044b8568EA288adB1961a071eaFFE68432",
+    "from": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "status": "FINALIZED",
+    "call": {
+      "args": [
+        "0x04eb0c501adcf053901e2910862c89803e7b5552",
+        "9089b164-f04a-40b5-9ac2-9a11076d1d16"
+      ],
+      "method": "assess_build"
+    },
+    "successful_return": true,
+    "receipts": [
+      {
+        "execution_result": "SUCCESS",
+        "result": {
+          "raw": "AAA=",
+          "status": "return",
+          "payload": {
+            "raw": [
+              0
+            ],
+            "readable": "null"
+          }
+        },
+        "genvm": {
+          "stderr": "",
+          "stdout": "",
+          "raw_error": null,
+          "error_code": null,
+          "error_description": null
+        }
+      },
+      {
+        "execution_result": "SUCCESS",
+        "result": {
+          "raw": "AAA=",
+          "status": "return",
+          "payload": {
+            "raw": [
+              0
+            ],
+            "readable": "null"
+          }
+        },
+        "genvm": {
+          "stderr": "",
+          "stdout": "",
+          "raw_error": null,
+          "error_code": null,
+          "error_description": null
+        }
+      }
+    ]
+  },
+  "record": {
+    "author": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "commitment": "8a78ff56869302e95cbbfa9058f35bbbd3141431f194286a987791e884b9308b",
+    "created_at": "2026-10-18T21:59:03.068936Z",
+    "id": "9089b164-f04a-40b5-9ac2-9a11076d1d16",
+    "key": "0x04eb0c501adcf053901e2910862c89803e7b5552:9089b164-f04a-40b5-9ac2-9a11076d1d16",
+    "manifest": "{\"commit\":\"ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500\",\"contract\":\"\",\"genlayer_role\":\"Validators independently evaluate committed source evidence and record a shared release assessment\",\"id\":\"9089b164-f04a-40b5-9ac2-9a11076d1d16\",\"profile\":\"developer-tools\",\"purpose\":\"Help maintainers assess agent-authored code against a written release policy\",\"repository\":\"https://github.com/ArlosX/PatchJury\",\"rubric_version\":\"genlysis-readiness-v1\",\"sources\":[{\"path\":\"README.md\",\"role\":\"documentation\",\"sha256\":\"e9a9a7be376554c1e4e59a4b44b03a54ad813eee7aeda98020488368d3b0e73b\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/README.md\"},{\"path\":\"src/genlayer.ts\",\"role\":\"integration\",\"sha256\":\"b5120bb58c2bf57c1af100d00c35d7afd3dfbd7801153bcf2a73f00039d47584\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/src/genlayer.ts\"},{\"path\":\"LIVE-VERIFICATION.md\",\"role\":\"supporting\",\"sha256\":\"6f4a817d1c745021979ac895256fc9ea1f463e18b954cc28ce425039ff4626fc\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/LIVE-VERIFICATION.md\"},{\"path\":\"TEST-REPORT.md\",\"role\":\"supporting\",\"sha256\":\"1bda18b3f19db941062533cbee936a6b770acac62ece3e6ae10c46b2bdb57e4e\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/TEST-REPORT.md\"},{\"path\":\"examples/review-ready/test_retry.py\",\"role\":\"supporting\",\"sha256\":\"9d49e32540830fd96154ccb827f3c2c2453e786fe8ecddc1d98414327fca9398\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/examples/review-ready/test_retry.py\"},{\"path\":\"tests/test_contract.py\",\"role\":\"supporting\",\"sha256\":\"e76c8652c2863819a9b63407e52860aa02fdf67b3ebb4ba5cef207b9c987d0c0\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/tests/test_contract.py\"}],\"title\":\"PatchJury\",\"website\":\"https://patchjury.vercel.app/\"}",
+    "parent_id": "",
+    "protocol_version": "genlysis-v2",
+    "provenance": "community-submitted"
+  },
+  "assessment": {
+    "assessment_version": "semantic-evidence-v2",
+    "author": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "commitment": "8a78ff56869302e95cbbfa9058f35bbbd3141431f194286a987791e884b9308b",
+    "coverage": 0,
+    "created_at": "2026-10-18T21:59:53.408988Z",
+    "criteria": {
+      "documentation": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      },
+      "fit": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      },
+      "integration": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      },
+      "reproducibility": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      },
+      "resilience": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      }
+    },
+    "evidence_level": "committed-source",
+    "id": "9089b164-f04a-40b5-9ac2-9a11076d1d16",
+    "key": "0x04eb0c501adcf053901e2910862c89803e7b5552:9089b164-f04a-40b5-9ac2-9a11076d1d16",
+    "protocol_version": "genlysis-v2",
+    "provenance": "community-submitted",
+    "readiness": "EVIDENCE_GAP",
+    "rubric_version": "genlysis-readiness-v1",
+    "scope": "Bounded committed source evidence with semantic support validation Runtime and CI execution are not attested Official points are not predicted",
+    "score": 0
+  },
+  "interpretation": "Successful finalized write with five UNKNOWN criteria and zero coverage This is not positive validation of assessment quality Raw model output is not retained in this receipt"
+}

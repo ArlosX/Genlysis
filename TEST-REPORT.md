@@ -1,4 +1,4 @@
-# Verification record
+# Historical v1 verification record
 
 Date: 2026-10-16.
 
@@ -31,7 +31,7 @@ Screenshots and machine-readable run details are in the ignored `artifacts/`
 directory. Automated accessibility results are not a complete accessibility
 certification.
 
-## Remaining live checks
+## Original live verification plan
 
 1. Deploy contracts/genlysis.py and configure its address.
 2. With a funded StudioNet wallet, register one real preflight manifest and
@@ -62,3 +62,39 @@ working navigation back to the home view. Automated WCAG A/AA checks on the
 revised studio and home returned no violations or page exceptions. No page
 overflow was observed at 360, 768 and 1024px. The detailed results are in
 `artifacts/refinement-report.json`.
+
+## V2 source update status on 2026-10-19
+
+The v1 contract was previously deployed and the user completed live assessments
+The public deployment and source collection were subsequently verified in artifacts/deployment-verification.json
+On 2026-10-19 the public v1 contract source was independently fetched and matched the pre-update local source byte for byte
+
+The new semantic-evidence-v2 source supersedes that implementation locally
+Its production frontend build, syntax checks and official schema compatibility checks completed successfully
+The existing model fixture was aligned with criterion line ranges and semantic validation
+No automated suite was added or run for this update
+The earlier 38 Node and 23 Python results remain historical v1 evidence
+The new deployment at 0x0dA89d044b8568EA288adB1961a071eaFFE68432 and exact deployed-source comparison are verified in docs/verification/v2-deployment-equivalence.json
+Its deployment receipt has successful finalized GenVM returns recorded in docs/verification/v2-deployment-receipt.json
+Live signed v2 assessment scenarios remain required
+The first actual v2 assessment finalized successfully but stored five UNKNOWN criteria and zero coverage
+This is recorded as a response-handling limitation, not proof of a successful supported assessment
+The local v2.1 source adds numbered source lines, exact-quote location recovery and explicit rejection of an entirely unusable response
+Official schema compatibility for v2.1 is recorded in docs/verification/v21-schema-verification.json
+The v2.1 replacement at 0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5 has verified source equivalence and successful finalized deployment receipts in docs/verification/v21-deployment-equivalence.json and docs/verification/v21-deployment-receipt.json
+Live v2.1 assessment remains required
+Two actual v2.1 attempts ended Undetermined and stored no assessment
+The repeated disagreement records are preserved in docs/verification/v21-consensus-disagreement.json and docs/verification/v21-second-disagreement.json
+The v2.2 correction retains source and semantic controls while replacing competing free-form assessment matching with independent per-criterion claim validation and rejection diagnostics
+Its frontend build and official schema check succeeded
+Automated suites were not run for v2.2 and its deployment and live verification remain pending
+The subsequent v2.2 deployment is now source-verified at 0xa3475354FC960E052D126677ce9E9F52288d3F21 with a successful finalized deployment receipt
+See docs/verification/v22-deployment-equivalence.json and docs/verification/v22-deployment-receipt.json
+The subsequent live v2.2 assessment is verified in docs/verification/v22-live-assessment.json
+Registration and assessment both reached Accepted consensus with successful finalized GenVM returns
+The stored score is 65/100 with 85% criterion coverage and EVIDENCE_GAP readiness
+The local backend independently validated the result and returned HTTP 200 for assessment and export
+Manual browser inspection displayed the same score and five criterion statuses
+This is one live source-scoped assessment, not full adversarial coverage or evidence of authenticated runtime execution
+Matching production code and contract configuration remain pending
+See REMEDIATION-V2.md for the changes and completion record

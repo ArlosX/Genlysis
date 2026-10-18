@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-10-18T23:00:43.519Z",
+  "address": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+  "transaction_hash": "0x3ef4682f3ee4f22cba0e590328c258e17299725b6c2dc77fcbac0cf58a037008",
+  "status": "FINALIZED",
+  "from": "0x4F7f0fA81fEF3bf7e9706ee20111b76527d02454",
+  "successful_return": true,
+  "receipts": [
+    {
+      "execution_result": "SUCCESS",
+      "result": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    },
+    {
+      "execution_result": "ERROR",
+      "result": {
+        "raw": "AmlkbGU=",
+        "status": "contract_error",
+        "payload": "idle"
+      }
+    }
+  ]
+}

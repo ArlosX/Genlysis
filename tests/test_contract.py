@@ -41,11 +41,12 @@ class ContractTests(unittest.TestCase):
         gl.message.sender_address.as_hex='0x'+'1'*40
         self.c=contract.Genlysis()
         self.response=types.SimpleNamespace(status_code=200,body=TEXT.encode())
-        self.model={a:{'status':'PASS','source_path':'contracts/app.py','quote':QUOTE,
+        self.model={a:{'status':'PASS','source_path':'contracts/app.py','quote':QUOTE,'start_line':2,'end_line':2,
             'reason':'The supplied scope supports this criterion.','action':'Retain the committed evidence.',
             'verify':'Repeat the documented assessment.'} for a in contract.AXES}
+        self.checks={axis:{'supported':True,'contradicted':False,'reason':'Supported in the controlled fixture'} for axis in contract.AXES}
         gl.nondet=types.SimpleNamespace(web=types.SimpleNamespace(request=lambda *a,**kw:self.response),
-            exec_prompt=lambda *a,**kw:copy.deepcopy(self.model))
+            exec_prompt=lambda *a,**kw:({'checks':copy.deepcopy(self.checks)} if 'Independently validate each proposed criterion' in a[0] else copy.deepcopy(self.model)))
         def nondet(assess,validate):
             result=assess()
             if not validate(Return(copy.deepcopy(result))):
@@ -103,8 +104,8 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(UserError):self.assess()
     def test_full_assessment_with_independent_agreement(self):
         self.register();self.assess()
-        self.assertEqual(self.result()['score'],100)
-        self.assertEqual(self.result()['readiness'],'READY_FOR_REVIEW')
+        self.assertEqual(self.result()['score'],80)
+        self.assertEqual(self.result()['readiness'],'NEEDS_WORK')
     def test_forged_quote_becomes_unknown(self):
         self.model['integration']['quote']='An invented source excerpt that never occurred.'
         self.register();self.assess()
@@ -116,7 +117,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(self.result()['readiness'],'NEEDS_WORK')
     def test_partial_is_half_weight(self):
         self.model['fit']['status']='PARTIAL';self.register();self.assess()
-        self.assertEqual(self.result()['score'],87)
+        self.assertEqual(self.result()['score'],67)
     def test_changed_bytes_produce_no_result(self):
         self.response.body=TEXT.encode()+b'\n';self.register()
         with self.assertRaises(UserError):self.assess()
@@ -127,11 +128,7 @@ class ContractTests(unittest.TestCase):
         self.assertFalse(self.result())
     def test_disagreement_produces_no_result(self):
         self.register()
-        def no_agreement(assess,validate):
-            result=assess();result['fit']['status']='FAIL'
-            if not validate(Return(result)):raise UserError('No agreement')
-            return result
-        gl.vm.run_nondet_unsafe=no_agreement
+        self.checks['fit']={'supported':False,'contradicted':True,'reason':'Unsupported in the controlled fixture'}
         with self.assertRaises(UserError):self.assess()
         self.assertFalse(self.result())
     def test_cannot_overwrite_assessment(self):

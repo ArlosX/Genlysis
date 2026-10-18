@@ -19,10 +19,13 @@ The integration should add DATABASE_URL, POSTGRES_URL or STORAGE_URL automatical
 The default STORAGE prefix is supported without manual changes
 Keep database credentials in server environment variables only
 
+Deploy the corrected contracts/genlysis.py and verify its exact source first
+See REMEDIATION-V2.md for the replacement deployment path
+
 Required additional environment variable
 
 ```text
-GENLYSIS_CONTRACT_ADDRESS=0x4BD95131706b77a8100ee38a634a797bE7928715
+GENLYSIS_CONTRACT_ADDRESS=0xa3475354FC960E052D126677ce9E9F52288d3F21
 ```
 
 Optional server variables

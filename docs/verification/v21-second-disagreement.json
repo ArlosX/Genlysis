@@ -1,0 +1,17 @@
+{
+  "hash": "0x750a3ab7045b44f6eb9f58cb09ed8c987a4460e6cdf2b38d52f5221c4dc8ea04",
+  "address": "0xe3B88c60C5AB941e00C27Fb62Fed8Ea489E9cfD5",
+  "rounds": "4",
+  "final_round": "Undetermined",
+  "votes": [
+    "AGREE",
+    "DISAGREE",
+    "DISAGREE",
+    "DISAGREE",
+    "AGREE"
+  ],
+  "registered_report": "150810c4-4369-4a3e-b1fa-077cd124bfa5",
+  "assessment": null,
+  "http_status": 200,
+  "interpretation": "Repeated validator disagreement No assessment was accepted Exact rejection branches were not logged by this historical source"
+}

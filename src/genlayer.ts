@@ -1,4 +1,4 @@
-import {executionSucceeded,executionFailure,type Receipt} from './receipt'
+import {executionSucceeded,executionFailure,consensusUndetermined,type Receipt} from './receipt'
 import type {CalldataEncodable} from 'genlayer-js/types'
 import {TransactionHashVariant} from 'genlayer-js/types'
 import type {Config} from './types'
@@ -18,7 +18,9 @@ export async function chainClient(config:Config,account:string,progress:(message
    try{r=await client.getTransaction({hash:hash as Parameters<typeof client.getTransaction>[0]["hash"]}) as unknown as Receipt}
    catch{progress('Connection interrupted Retrying the status check No new transaction is being sent');await new Promise(resolve=>setTimeout(resolve,5000));continue}
    const status=String(r.statusName||r.status_name||r.status||'PENDING').toUpperCase();
-   progress('StudioNet status: '+status+' | Checked '+new Date().toLocaleTimeString());
+   const round=r.last_round?.round, votes=r.last_round?.votes_revealed,total=r.last_round?.round_validators?.length;
+   progress('StudioNet status: '+status+(round!==undefined?' | Round '+(Number(round)+1):'')+(votes!==undefined&&total?' | Votes '+votes+'/'+total:'')+' | Checked '+new Date().toLocaleTimeString());
+   if(consensusUndetermined(r))throw Object.assign(new Error(executionFailure(r)+' Transaction: '+hash),{terminal:true});
    if(status==='FINALIZED'){if(!executionSucceeded(r))throw Object.assign(new Error(executionFailure(r)+' ('+status+') Transaction: '+hash),{terminal:true});return hash}
    if(['CANCELED','CANCELLED','UNDETERMINED'].includes(status))throw Object.assign(new Error('StudioNet ended the transaction with status '+status+' Transaction: '+hash),{terminal:true});
    await new Promise(resolve=>setTimeout(resolve,5000));

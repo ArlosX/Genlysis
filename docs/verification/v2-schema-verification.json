@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-18T21:45:39.387Z",
+  "source_sha256": "21348c729a2b0394c7f265770bba51a7ffcbdedf577701ebb879197f1406f538",
+  "methods": [
+    "assess_build",
+    "get_assessment",
+    "get_build",
+    "get_protocol",
+    "register_build"
+  ],
+  "service": "https://studio.genlayer.com/api",
+  "deployment_performed": false
+}
