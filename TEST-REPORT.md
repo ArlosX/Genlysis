@@ -1,4 +1,4 @@
-# Verification record
+# Historical v1 verification record
 
 Date: 2026-10-16.
 
@@ -31,7 +31,7 @@ Screenshots and machine-readable run details are in the ignored `artifacts/`
 directory. Automated accessibility results are not a complete accessibility
 certification.
 
-## Remaining live checks
+## Original live verification plan
 
 1. Deploy contracts/genlysis.py and configure its address.
 2. With a funded StudioNet wallet, register one real preflight manifest and
@@ -62,3 +62,17 @@ working navigation back to the home view. Automated WCAG A/AA checks on the
 revised studio and home returned no violations or page exceptions. No page
 overflow was observed at 360, 768 and 1024px. The detailed results are in
 `artifacts/refinement-report.json`.
+
+## V2 source update status on 2026-10-19
+
+The v1 contract was previously deployed and the user completed live assessments
+The public deployment and source collection were subsequently verified in artifacts/deployment-verification.json
+On 2026-10-19 the public v1 contract source was independently fetched and matched the pre-update local source byte for byte
+
+The new semantic-evidence-v2 source supersedes that implementation locally
+Its production frontend build, syntax checks and official schema compatibility checks completed successfully
+The existing model fixture was aligned with criterion line ranges and semantic validation
+No automated suite was added or run for this update
+The earlier 38 Node and 23 Python results remain historical v1 evidence
+New contract deployment, exact deployed-source comparison and live signed scenarios remain required
+See REMEDIATION-V2.md for the changes and completion record
