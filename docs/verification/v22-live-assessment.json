@@ -1,0 +1,235 @@
+{
+  "verified_at": "2026-10-18T23:07:21.471Z",
+  "receipt": {
+    "hash": "0x544e4d19b88d100f4ebe0c0a263291626a54b0abe5271f874e6558291b9a41c9",
+    "address": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+    "to": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+    "from": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "status": "FINALIZED",
+    "call": {
+      "args": [
+        "0x04eb0c501adcf053901e2910862c89803e7b5552",
+        "150810c4-4369-4a3e-b1fa-077cd124bfa5"
+      ],
+      "method": "assess_build"
+    },
+    "successful_return": true,
+    "receipts": [
+      {
+        "execution_result": "SUCCESS",
+        "result": {
+          "raw": "AAA=",
+          "status": "return",
+          "payload": {
+            "raw": [
+              0
+            ],
+            "readable": "null"
+          }
+        },
+        "genvm": {
+          "stderr": "",
+          "stdout": "",
+          "raw_error": null,
+          "error_code": null,
+          "error_description": null
+        }
+      },
+      {
+        "execution_result": "SUCCESS",
+        "result": {
+          "raw": "AAA=",
+          "status": "return",
+          "payload": {
+            "raw": [
+              0
+            ],
+            "readable": "null"
+          }
+        },
+        "genvm": {
+          "stderr": "",
+          "stdout": "",
+          "raw_error": null,
+          "error_code": null,
+          "error_description": null
+        }
+      }
+    ]
+  },
+  "record": {
+    "author": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "commitment": "a0a9dbf98d80173529270d8a21abf1c33073af20200ecef6d9a7239365937010",
+    "created_at": "2026-10-18T23:03:39.639851Z",
+    "id": "150810c4-4369-4a3e-b1fa-077cd124bfa5",
+    "key": "0x04eb0c501adcf053901e2910862c89803e7b5552:150810c4-4369-4a3e-b1fa-077cd124bfa5",
+    "manifest": "{\"commit\":\"ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500\",\"contract\":\"\",\"genlayer_role\":\"Validators independently evaluate committed source evidence and record a shared release assessment\",\"id\":\"150810c4-4369-4a3e-b1fa-077cd124bfa5\",\"profile\":\"developer-tools\",\"purpose\":\"Help maintainers assess agent-authored code against a written release policy\",\"repository\":\"https://github.com/ArlosX/PatchJury\",\"rubric_version\":\"genlysis-readiness-v1\",\"sources\":[{\"path\":\"README.md\",\"role\":\"documentation\",\"sha256\":\"e9a9a7be376554c1e4e59a4b44b03a54ad813eee7aeda98020488368d3b0e73b\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/README.md\"},{\"path\":\"src/genlayer.ts\",\"role\":\"integration\",\"sha256\":\"b5120bb58c2bf57c1af100d00c35d7afd3dfbd7801153bcf2a73f00039d47584\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/src/genlayer.ts\"},{\"path\":\"LIVE-VERIFICATION.md\",\"role\":\"supporting\",\"sha256\":\"6f4a817d1c745021979ac895256fc9ea1f463e18b954cc28ce425039ff4626fc\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/LIVE-VERIFICATION.md\"},{\"path\":\"TEST-REPORT.md\",\"role\":\"supporting\",\"sha256\":\"1bda18b3f19db941062533cbee936a6b770acac62ece3e6ae10c46b2bdb57e4e\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/TEST-REPORT.md\"},{\"path\":\"examples/review-ready/test_retry.py\",\"role\":\"supporting\",\"sha256\":\"9d49e32540830fd96154ccb827f3c2c2453e786fe8ecddc1d98414327fca9398\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/examples/review-ready/test_retry.py\"},{\"path\":\"tests/test_contract.py\",\"role\":\"supporting\",\"sha256\":\"e76c8652c2863819a9b63407e52860aa02fdf67b3ebb4ba5cef207b9c987d0c0\",\"url\":\"https://raw.githubusercontent.com/ArlosX/PatchJury/ad662fcb514ec47d9c2312ccdc7a4a67b1dd5500/tests/test_contract.py\"}],\"title\":\"PatchJury\",\"website\":\"https://patchjury.vercel.app/\"}",
+    "parent_id": "",
+    "protocol_version": "genlysis-v2",
+    "provenance": "community-submitted"
+  },
+  "assessment": {
+    "assessment_version": "semantic-evidence-v2.2",
+    "author": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+    "commitment": "a0a9dbf98d80173529270d8a21abf1c33073af20200ecef6d9a7239365937010",
+    "coverage": 85,
+    "created_at": "2026-10-18T23:04:31.718220Z",
+    "criteria": {
+      "documentation": {
+        "action": "Provide complete source evidence relevant to this criterion",
+        "end_line": 0,
+        "quote": "",
+        "reason": "The committed evidence did not establish valid support for this criterion",
+        "source_path": "",
+        "start_line": 0,
+        "status": "UNKNOWN",
+        "verify": "Register a revision and inspect its criterion-specific evidence"
+      },
+      "fit": {
+        "action": "Maintain the current clarity of the GenLayer role in the release process.",
+        "end_line": 21,
+        "quote": "GenLayer independently retrieves evidence and evaluates remediation, regression and scope",
+        "reason": "The project establishes a clear interpretive decision for GenLayer: assessing whether a code patch meets a release policy based on independent evidence retrieval.",
+        "source_path": "README.md",
+        "start_line": 21,
+        "status": "PASS",
+        "verify": "Verify that the contract logic requires independent validator agreement on the semantic interpretation of the patch."
+      },
+      "integration": {
+        "action": "Provide verifiable runtime execution receipts for the v2 contract address.",
+        "end_line": 166,
+        "quote": "const receipt = await client.waitForTransactionReceipt({ hash, status: \"FINALIZED\" as never, retries: 120, interval: 5000 }) as StudioReceipt",
+        "reason": "The client handles full transaction lifecycles including finalization and execution results, but lacks authenticated runtime evidence for the v2 contract.",
+        "source_path": "src/genlayer.ts",
+        "start_line": 166,
+        "status": "PARTIAL",
+        "verify": "Verify the v2 contract deployment and execution on StudioNet using the provided RPC and address."
+      },
+      "reproducibility": {
+        "action": "Maintain the existing test coverage and detailed reporting.",
+        "end_line": 5,
+        "quote": "52 deterministic contract tests with controlled GenVM, network and model doubles",
+        "reason": "The project provides an extensive test suite with 52 contract tests and 22 client tests, including concrete expected results for various failure flows.",
+        "source_path": "TEST-REPORT.md",
+        "start_line": 5,
+        "status": "PASS",
+        "verify": "Run 'python -m unittest discover -s tests -p test_contract.py' to reproduce the documented test outcomes."
+      },
+      "resilience": {
+        "action": "Provide authenticated runtime receipts for the adversarial test cases.",
+        "end_line": 171,
+        "quote": "def test_prompt_payload_stays_json_data(self):",
+        "reason": "The project includes tests for prompt injection, malformed model responses, and unauthorized submissions, but lacks authenticated runtime adversarial evidence.",
+        "source_path": "tests/test_contract.py",
+        "start_line": 171,
+        "status": "PARTIAL",
+        "verify": "Inspect the 'test_prompt_payload_stays_json_data' and 'test_forged_app' test implementations for robust validation."
+      }
+    },
+    "evidence_level": "committed-source",
+    "id": "150810c4-4369-4a3e-b1fa-077cd124bfa5",
+    "key": "0x04eb0c501adcf053901e2910862c89803e7b5552:150810c4-4369-4a3e-b1fa-077cd124bfa5",
+    "protocol_version": "genlysis-v2",
+    "provenance": "community-submitted",
+    "readiness": "EVIDENCE_GAP",
+    "rubric_version": "genlysis-readiness-v1",
+    "scope": "Bounded committed source evidence with semantic support validation Runtime and CI execution are not attested Official points are not predicted",
+    "score": 65,
+    "validation_mode": "independent-claim-validation"
+  },
+  "successful_consensus_receipts": [
+    {
+      "hash": "0x544e4d19b88d100f4ebe0c0a263291626a54b0abe5271f874e6558291b9a41c9",
+      "method": "assess_build",
+      "status": "FINALIZED",
+      "consensus_round": "Accepted",
+      "from": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+      "to": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+      "leader_receipts": [
+        {
+          "execution_result": "SUCCESS",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          }
+        },
+        {
+          "execution_result": "SUCCESS",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          }
+        }
+      ],
+      "validator_votes": [
+        "AGREE",
+        "AGREE",
+        "DISAGREE",
+        "AGREE",
+        "IDLE"
+      ]
+    },
+    {
+      "hash": "0xf4865e530af7f8ad25f2a7467c57042501905e71ecb425b7d1b8d0879aa78cad",
+      "method": "register_build",
+      "status": "FINALIZED",
+      "consensus_round": "Accepted",
+      "from": "0x04eB0c501Adcf053901E2910862C89803E7b5552",
+      "to": "0xa3475354FC960E052D126677ce9E9F52288d3F21",
+      "leader_receipts": [
+        {
+          "execution_result": "SUCCESS",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          }
+        },
+        {
+          "execution_result": "SUCCESS",
+          "result": {
+            "raw": "AAA=",
+            "status": "return",
+            "payload": {
+              "raw": [
+                0
+              ],
+              "readable": "null"
+            }
+          }
+        }
+      ],
+      "validator_votes": [
+        "AGREE",
+        "AGREE",
+        "IDLE",
+        "IDLE",
+        "AGREE"
+      ]
+    }
+  ],
+  "backend_verification": {
+    "assessment_http_status": 200,
+    "export_http_status": 200,
+    "score": 65,
+    "coverage": 85
+  },
+  "interpretation": "A successful source-scoped assessment, not a comprehensive security audit or prediction of official points"
+}

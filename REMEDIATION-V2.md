@@ -147,7 +147,20 @@ The finalized protocol reports semantic-evidence-v2.2 and independent-claim-vali
 Proofs are in docs/verification/v22-deployment-equivalence.json and docs/verification/v22-deployment-receipt.json
 Local API configuration uses the verified address and was restarted
 The existing reports remain in the database and can be registered against the new contract
-Live v2.2 assessment and production publication remain pending
+The subsequent live v2.2 assessment reached accepted consensus and stored a supported result
+Matching production publication remains pending
+
+## Accepted v2.2 live assessment
+
+Report 150810c4-4369-4a3e-b1fa-077cd124bfa5 was registered successfully in transaction 0xf4865e530af7f8ad25f2a7467c57042501905e71ecb425b7d1b8d0879aa78cad
+Assessment transaction 0x544e4d19b88d100f4ebe0c0a263291626a54b0abe5271f874e6558291b9a41c9 finalized with successful GenVM execution and an Accepted consensus round
+The independently read contract state contains score 65, coverage 85 and readiness EVIDENCE_GAP
+Fit and reproducibility are PASS, integration and resilience are PARTIAL, and documentation is UNKNOWN
+Four known criteria contain exact source quotations and line ranges
+The backend validated the immutable report binding, criterion citations and derived score before returning HTTP 200
+The Markdown export returned HTTP 200 and the browser displayed the same assessment
+Evidence is preserved in docs/verification/v22-live-assessment.json
+This proves one successful committed-source assessment and does not establish all adversarial scenarios, runtime execution or official Builder points
 
 ## Limits
 

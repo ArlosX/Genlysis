@@ -90,5 +90,11 @@ Its frontend build and official schema check succeeded
 Automated suites were not run for v2.2 and its deployment and live verification remain pending
 The subsequent v2.2 deployment is now source-verified at 0xa3475354FC960E052D126677ce9E9F52288d3F21 with a successful finalized deployment receipt
 See docs/verification/v22-deployment-equivalence.json and docs/verification/v22-deployment-receipt.json
-Successful live v2.2 assessment remains pending
+The subsequent live v2.2 assessment is verified in docs/verification/v22-live-assessment.json
+Registration and assessment both reached Accepted consensus with successful finalized GenVM returns
+The stored score is 65/100 with 85% criterion coverage and EVIDENCE_GAP readiness
+The local backend independently validated the result and returned HTTP 200 for assessment and export
+Manual browser inspection displayed the same score and five criterion statuses
+This is one live source-scoped assessment, not full adversarial coverage or evidence of authenticated runtime execution
+Matching production code and contract configuration remain pending
 See REMEDIATION-V2.md for the changes and completion record
