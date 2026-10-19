@@ -12,6 +12,8 @@ export function createPostgresStore(connection) {
  ready.catch(error=>console.error('Genlysis database initialization failed',{
   name:String(error?.name||'Error'),
   code:String(error?.code||'UNKNOWN'),
+  transportCode:String(error?.sourceError?.cause?.code||error?.sourceError?.code||'UNKNOWN'),
+  transportReason:String(error?.sourceError?.cause?.message||'').replace(/\b(?:postgres(?:ql)?|https?):\/\/[^\s]+/gi,'[redacted endpoint]').slice(0,300),
   message:String(error?.message||'Database initialization failed')
    .replace(/\b(?:postgres(?:ql)?|https?):\/\/[^\s]+/gi,'[redacted endpoint]')
    .replace(/\b(?:password|token|secret)\s*[=:]\s*[^\s,;]+/gi,'[redacted credential]')
