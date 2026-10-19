@@ -53,6 +53,11 @@ need an explicit data migration to become accessible through the online API
 
 ## Execution model
 
+Vercel uses the pg PostgreSQL driver with a bounded three-connection pool and attachDatabasePool lifecycle management
+Database setup retries on a later request after a transient connection failure
+The previous Neon HTTP transport closed connections with UND_ERR_SOCKET on the original Production rollout
+The database, tables, report format and contract are unchanged
+
 Neon stores reports, ownership hashes and shared request limits
 Vercel waitUntil keeps each collection task attached to its invocation
 Timed-out collection jobs become failed after five minutes when read
